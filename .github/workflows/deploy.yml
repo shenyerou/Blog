@@ -43,8 +43,8 @@ jobs:
         run: npm install
 
       # 第四步：生成静态文件
-      - name: Build with Debug
-        run: hexo clean && hexo generate --debug
+      - name: Build
+        run: npm run clean && npm run build
 
       # 第五步：设置 Pages
       - name: Setup Pages
