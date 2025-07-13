@@ -11,13 +11,15 @@
 # Docs: https://redefine-docs.ohevan.com/basic/info
 info:
   # Site title
-  title: Theme Redefine
+  title: shenyerou's Blog
   # Site subtitle
-  subtitle: Redefine Your Hexo Journey.
+  subtitle: 'A blog about programming, technology, and life'
   # Author name
-  author: The Redefine Team
+  author: shenyerou
   # Site URL
-  url: https://redefine.ohevan.com
+  url: https://shenyerou.github.io
+  # Site root path
+  root: /Blog/
 # BASIC INFORMATION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
 

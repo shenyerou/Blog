@@ -3,13 +3,13 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
+title: shenyerou's Blog
+subtitle: 'A blog about programming, technology, and life'
 description: ''
 keywords:
-author: John Doe
+author: shenyerou
 language: zh-CN
-timezone: ''
+timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -97,7 +97,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: redefine # Set your theme here, e.g., 'redefine'
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
