@@ -1,0 +1,63 @@
+# 用于将 Hexo 博客部署到 GitHub Pages 的工作流
+name: Deploy Blog to GitHub Pages
+
+# 控制工作流的触发时机
+on:
+  # 在推送到 `main` 分支时运行
+  push:
+    branches: ['main']
+  # 允许你手动从 Actions 选项卡运行此工作流
+  workflow_dispatch:
+
+# 设置 GITHUB_TOKEN 的权限，以允许部署到 GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 只允许一个并发部署
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      # 第一步：检出你的源代码仓库
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 第二步：设置 Node.js 环境
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18 # 你可以根据需要更改 Node.js 版本
+          cache: 'npm'
+
+      # 第三步：安装 Hexo 依赖
+      - name: Install Dependencies
+        run: npm install
+
+      # 第四步：生成静态文件
+      - name: Build
+        run: npm run build # 这会执行 `hexo generate` 命令，生成 public 目录
+
+      # 第五步：设置 Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      # 第六步：上传构建产物
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # 上传 Hexo 生成的 public 目录
+          path: './public'
+
+      # 第七步：部署到 GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
