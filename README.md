@@ -2,7 +2,7 @@
 
 ## 基本信息
 
-这是shenyerou的个人博客，网址(https://shenyerou.github.io/Blog)，创建时间为2025年7月13日。
+这是shenyerou的个人博客，网址<https://shenyerou.github.io/Blog>，创建时间为2025年7月13日。
 
 ## 主要内容
 
