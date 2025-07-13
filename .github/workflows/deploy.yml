@@ -35,7 +35,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18 # 你可以根据需要更改 Node.js 版本
+          node-version: 22.13 # 你可以根据需要更改 Node.js 版本
           cache: 'npm'
 
       # 第三步：安装 Hexo 依赖
@@ -43,8 +43,8 @@ jobs:
         run: npm install
 
       # 第四步：生成静态文件
-      - name: Build
-        run: npm run build # 这会执行 `hexo generate` 命令，生成 public 目录
+      - name: Build with Debug
+        run: hexo clean && hexo generate --debug
 
       # 第五步：设置 Pages
       - name: Setup Pages
